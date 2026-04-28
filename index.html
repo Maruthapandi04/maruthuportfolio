@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Marutha Pandi | Full Stack Developer</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Full Stack Developer Portfolio" name="keywords">
+    <meta content="Marutha Pandi - Full Stack Developer Portfolio" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        .resume-open-btn {
+            padding: 8px 20px;
+            background: #0bceaf;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        /* Font Awesome font for Unicode icons */
+        @font-face {
+            font-family: 'Font Awesome 5 Free';
+            font-style: normal;
+            font-weight: 900;
+            font-display: block;
+            src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/webfonts/fa-solid-900.woff2") format("woff2");
+        }
+
+        .service-icon {
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .service-card {
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(11, 206, 175, 0.2) !important;
+        }
+
+        .service-card:hover .service-icon {
+            transform: rotate(15deg) scale(1.1);
+            background: linear-gradient(135deg, #0bceaf, #09a68e) !important;
+        }
+
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-5px);
+        }
+
+        .btn-primary {
+            background-color: #0bceaf;
+            border-color: #0bceaf;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #09a68e;
+            border-color: #09a68e;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(11, 206, 175, 0.3);
+        }
+
+        .text-primary {
+            color: #0bceaf !important;
+        }
+
+        .bg-primary {
+            background-color: #0bceaf !important;
+        }
+
+        /* Card hover effect */
+        .service-card {
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .service-card:hover {
+            border-color: #0bceaf;
+        }
+
+        /* Simple Resume Modal Styles */
+        .resume-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .resume-content {
+            background: #fff;
+            width: 80%;
+            max-width: 900px;
+            height: 85%;
+            margin: 40px auto;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .resume-close {
+            position: absolute;
+            top: 12px;
+            right: 18px;
+            font-size: 30px;
+            cursor: pointer;
+            z-index: 10000;
+            color: #333;
+        }
+
+        .resume-image-container {
+            flex: 1;
+            padding: 20px;
+            overflow: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f5f5f5;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .resume-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .resume-footer {
+            padding: 12px;
+            text-align: center;
+            border-top: 1px solid #ddd;
+            background: white;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .resume-download-btn {
+            padding: 10px 25px;
+            background: #0bceaf;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            display: inline-block;
+        }
+
+        .resume-download-btn:hover {
+            background: #09a68e;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .resume-content {
+                width: 95%;
+                height: 90%;
+                margin: 20px auto;
+            }
+        }
+
+        /* Portfolio Project Styles */
+        .portfolio-container {
+            margin-top: 30px;
+        }
+
+        .portfolio-item {
+            margin-bottom: 30px;
+        }
+
+        .portfolio-img-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+            height: 250px;
+            width: 100%;
+        }
+
+        .portfolio-img-wrapper:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(11, 206, 175, 0.2);
+        }
+
+        .portfolio-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-img-wrapper:hover .portfolio-img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(11, 206, 175, 0.9);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .portfolio-img-wrapper:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            transform: translateY(-20px);
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-category {
+            font-size: 1rem;
+            margin-bottom: 15px;
+            transform: translateY(-20px);
+            transition: transform 0.3s ease 0.1s;
+        }
+
+        .portfolio-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background: white;
+            color: #0bceaf;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transform: translateY(20px);
+            transition: transform 0.3s ease 0.2s, background 0.3s ease, color 0.3s ease;
+        }
+
+        .portfolio-link:hover {
+            background: #0bceaf;
+            color: white;
+            text-decoration: none;
+        }
+
+        .portfolio-img-wrapper:hover .portfolio-title,
+        .portfolio-img-wrapper:hover .portfolio-category,
+        .portfolio-img-wrapper:hover .portfolio-link {
+            transform: translateY(0);
+        }
+
+        .category-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 5px 15px;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: white;
+            z-index: 2;
+        }
+
+        .badge-frontend {
+            background: #007bff;
+        }
+
+        .badge-backend {
+            background: #dc3545;
+        }
+
+        .badge-fullstack {
+            background: #28a745;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .service-icon {
+                width: 60px !important;
+                height: 60px !important;
+                font-size: 24px !important;
+            }
+
+            .card-body {
+                padding: 1.5rem !important;
+            }
+
+            h4 {
+                font-size: 1.2rem;
+            }
+
+            .resume-content {
+                width: 95%;
+                height: 90%;
+                margin: 20px auto;
+            }
+
+            .portfolio-img-wrapper {
+                height: 200px;
+            }
+
+            .portfolio-img {
+                height: 200px;
+            }
+
+            .portfolio-title {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .service-icon {
+                width: 50px !important;
+                height: 50px !important;
+                font-size: 20px !important;
+            }
+
+            .card-body {
+                padding: 1rem !important;
+            }
+
+            .portfolio-img-wrapper {
+                height: 180px;
+            }
+
+            .portfolio-img {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="51">
+    <!-- Navbar Start -->
+    <nav class="navbar fixed-top shadow-sm navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5"
+        style="border-radius:0px 0px 50px 50px ; background-color:#007bff;">
+        <a href="index.html" class="navbar-brand ml-lg-3">
+            <h1 class="m-0 display-5"><span class="text-primary">M</span>P</h1>
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse px-lg-3" id="navbarCollapse">
+            <div class="navbar-nav m-auto py-0">
+                <a href="#home" class="nav-item nav-link active">Home</a>
+                <a href="#about" class="nav-item nav-link">About</a>
+                <a href="#skill" class="nav-item nav-link">Skill</a>
+                <a href="#portfolio" class="nav-item nav-link">Project</a>
+                <a href="#service" class="nav-item nav-link">Service</a>
+                <a href="#contactForm" class="nav-item nav-link">Contact</a>
+            </div>
+            <button class="resume-open-btn" onclick="openResume()">
+                Resume
+            </button>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Resume Modal -->
+    <div id="resumeModal" class="resume-modal">
+        <div class="resume-content">
+            <span class="resume-close" onclick="closeResume()">&times;</span>
+            <div class="resume-image-container">
+                <img src="img/resume.jpg" alt="Resume" class="resume-img">
+            </div>
+            <div class="resume-footer">
+                <a href="img/resume.jpg" download="Marutha_Pandi_Resume.pdf" class="resume-download-btn">
+                    Download Resume
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Start -->
+    <div class="container-fluid bg-primary d-flex align-items-center mb-5 py-5" id="home" style="min-height: 100vh;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 px-5 pl-lg-0 pb-5 pb-lg-0">
+                    <img class="img-fluid w-100 rounded-circle shadow-sm" src="img/mp2.png" alt="Marutha Pandi">
+                </div>
+                <div class="col-lg-7 text-center text-lg-left">
+                    <h3 class="text-white font-weight-normal mb-3">I'm</h3>
+                    <h1 cla="" style="font-size:4rem; color:white;">
+                        Marutha Pandi</h1>
+                    <h2 class="text-success" style="color:white;">MERN Stack Developer</h2>
+
+                    <div class="d-flex align-items-center justify-content-center justify-content-lg-start pt-5">
+                        <button class="btn btn-outline-light mr-5" onclick="openResume()">
+                            Download CV
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+    <!-- About Start -->
+    <div class="container-fluid py-5" id="about">
+        <div class="container">
+            <div class="position-relative d-flex align-items-center justify-content-center">
+                <h1 class="display-1 text-uppercase text-white">About</h1>
+                <h1 class="position-absolute text-uppercase text-primary">About Me</h1>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-5 pb-4 pb-lg-0">
+                    <img class="img-fluid rounded w-100" src="img/mp.jpg" alt="Marutha Pandi">
+                </div>
+                <div class="col-lg-7">
+                    <h3 class="mb-4">Full Stack Developer</h3>
+                    <p>Enthusiastic and creative Fresher Web Developer with a strong foundation in HTML, CSS, and
+                        JavaScript, passionate about building responsive and user-friendly websites. Eager to apply my
+                        skills to real-world projects and grow as a professional developer.</p>
+                    <div class="row mb-3">
+                        <div class="col-sm-6 py-2">
+                            <h6>Name: <span class="text-secondary">Marutha Pandi A</span></h6>
+                        </div>
+                        <div class="col-sm-6 py-2">
+                            <h6>Dob: <span class="text-secondary">06/July/2004</span></h6>
+                        </div>
+                        <div class="col-sm-6 py-2">
+                            <h6>Degree: <span class="text-secondary">M.Sc Computer Science</span></h6>
+                        </div>
+                        <div class="col-sm-6 py-2">
+                            <h6>Phone: <span class="text-secondary">+91 8870671827</span></h6>
+                        </div>
+                        <div class="col-sm-6 py-2">
+                            <h6>Email: <span class="text-secondary">amaruthupandi04@gmail.com</span></h6>
+                        </div>
+                        <div class="col-sm-6 py-2">
+                            <h6>Address: <span class="text-secondary">Trichy</span></h6>
+                        </div>
+                    </div>
+                    <a href="#contactForm" class="btn btn-outline-primary mr-4">Hire Me</a>
+                    <a href="#portfolio" class="btn btn-outline-primary">View Project</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+    <!-- Qualification Start -->
+    <div class="container-fluid py-5 bg-light" id="qualification">
+        <div class="container">
+            <div class="position-relative d-flex align-items-center justify-content-center">
+                <h1 class="display-1 text-uppercase text-white">About</h1>
+                <h1 class="position-absolute text-uppercase text-primary">Education & Expreience</h1>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="bg-white p-4 rounded-lg shadow-sm h-100">
+                        <h3 class="mb-4 text-primary"><i class="fas fa-graduation-cap mr-2"></i>My Education</h3>
+                        <div class="border-left border-primary pt-2 pl-4 ml-2">
+                            <div class="position-relative mb-4">
+                                <i class="far fa-dot-circle text-primary position-absolute"
+                                    style="top: 2px; left: -32px;"></i>
+                                <h5 class="font-weight-bold mb-1">M.Sc. Computer Science</h5>
+                                <p class="mb-2"><strong>National College Trichy</strong> | <small
+                                        class="text-primary">2024 - 2026</small></p>
+                                <p class="text-muted"> Master's degree with focus on advanced computing and web
+                                    technologies.</p>
+                            </div>
+                            <div class="position-relative mb-4">
+                                <i class="far fa-dot-circle text-primary position-absolute"
+                                    style="top: 2px; left: -32px;"></i>
+                                <h5 class="font-weight-bold mb-1">B.Sc Computer Science</h5>
+                                <p class="mb-2"><strong>Indra Ganesan College Of Arts & Science</strong> | <small
+                                        class="text-primary">2021 - 2024</small></p>
+                                <p class="text-muted">Graduated with distinction, specialized in programming and
+                                    database management.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="bg-white p-4 rounded-lg shadow-sm h-100">
+                        <h3 class="mb-4 text-primary"><i class="fas fa-briefcase mr-2"></i>My Experience</h3>
+                        <div class="border-left border-primary pt-2 pl-4 ml-2">
+                            <div class="position-relative mb-4">
+                                <i class="far fa-dot-circle text-primary position-absolute"
+                                    style="top: 2px; left: -32px;"></i>
+                                <h5 class="font-weight-bold mb-1">Full Stack Developer - Intern</h5>
+                                <p class="mb-2"><strong>Freshora Digital Technologies</strong> | <small
+                                        class="text-primary">Dec 2025 - Jan 2026</small></p>
+                                <ul class="text-muted pl-3">
+                                    <li>Developed responsive websites using HTML, CSS, JavaScript, and Node.js</li>
+                                    <li>Created RESTful APIs with Node.js & Express</li>
+                                    <li>Integrated MySQL databases for data persistence</li>
+                                </ul>
+                            </div>
+                            <div class="position-relative mb-4">
+                                <i class="far fa-dot-circle text-primary position-absolute"
+                                    style="top: 2px; left: -32px;"></i>
+                                <h5 class="font-weight-bold mb-1">Web Development - Intern</h5>
+                                <p class="mb-2"><strong>e-Soft IT Solution</strong> | <small class="text-primary">July
+                                        2025</small></p>
+                                <ul class="text-muted pl-3">
+                                    <li>Learned full-stack web development fundamentals</li>
+                                    <li>Built form submission systems and database integration</li>
+                                    <li>Collaborated on team projects using Git</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Qualification End -->
+
+
+    <!-- Skill Start -->
+    <div class="container-fluid " id="skill">
+        <div class="container">
+            <div class="position-relative d-flex align-items-center justify-content-center">
+                <h1 class="display-1 text-uppercase text-white">Skills</h1>
+                <h1 class="position-absolute text-uppercase text-primary">My Skills</h1>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="skill mb-4">
+                        <div class="d-flex justify-content-between">
+                            <h6 class="font-weight-bold">HTML</h6>
+                            <h6 class="font-weight-bold">90%</h6>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="90" aria-valuemin="0"
+                                aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="skill mb-4">
+                        <div class="d-flex justify-content-between">
+                            <h6 class="font-weight-bold">CSS</h6>
+                            <h6 class="font-weight-bold">85%</h6>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="85" aria-valuemin="0"
+                                aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="skill mb-4">
+                        <div class="d-flex justify-content-between">
+                            <h6 class="font-weight-bold">Javascript</h6>
+                            <h6 class="font-weight-bold">50%</h6>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0"
+                                aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="skill mb-4">
+                        <div class="d-flex justify-content-between">
+                            <h6 class="font-weight-bold">Bootstrap</h6>
+                            <h6 class="font-weight-bold">50%</h6>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-info" role="progressbar" aria-valuenow="50" aria-valuemin="0"
+                                aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="skill mb-4">
+                        <div class="d-flex justify-content-between">
+                            <h6 class="font-weight-bold">Node.js</h6>
+                            <h6 class="font-weight-bold">80%</h6>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="80" aria-valuemin="0"
+                                aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="skill mb-4">
+                        <div class="d-flex justify-content-between">
+                            <h6 class="font-weight-bold">Wordpress</h6>
+                            <h6 class="font-weight-bold">50%</h6>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-secondary" role="progressbar" aria-valuenow="50"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Skill End -->
+
+
+        <!-- Portfolio Start -->
+        <div class="container-fluid pt-5 pb-3" id="portfolio">
+            <div class="container">
+                <div class="position-relative d-flex align-items-center justify-content-center">
+                    <h1 class="display-1 text-uppercase text-white">Project</h1>
+                    <h1 class="position-absolute text-uppercase text-primary">My Projects</h1>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center mb-2">
+                        <ul class="list-inline mb-4" id="portfolio-flters">
+                            <li class="btn btn-sm btn-outline-primary m-1 active" data-filter="*">All</li>
+                            <li class="btn btn-sm btn-outline-primary m-1" data-filter=".frontend">Front End</li>
+                            <li class="btn btn-sm btn-outline-primary m-1" data-filter=".backend">Back End</li>
+                            <li class="btn btn-sm btn-outline-primary m-1" data-filter=".fullstack">Full Stack</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row portfolio-container">
+                    <!-- Front End Projects -->
+                    <div class="col-lg-4 col-md-6 mb-4 portfolio-item frontend">
+                        <div class="portfolio-img-wrapper">
+                            <span class="category-badge badge-frontend">Front End</span>
+                            <img class="portfolio-img" src="img/car.png" alt="Car Rental Website">
+                            <div class="portfolio-overlay">
+                                <h4 class="portfolio-title">Car Rental Website</h4>
+                                <p class="portfolio-category">HTML, CSS, JavaScript</p>
+                                <a href="#" class="portfolio-link" data-lightbox="portfolio">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4 portfolio-item frontend">
+                        <div class="portfolio-img-wrapper">
+                            <span class="category-badge badge-frontend">Front End</span>
+                            <img class="portfolio-img" src="img/sign.png" alt="Portfolio Website">
+                            <div class="portfolio-overlay">
+                                <h4 class="portfolio-title">Sign Language Web Application</h4>
+                                <p class="portfolio-category">REACT, Java?Script</p>
+                                <a href="#" class="portfolio-link" data-lightbox="portfolio">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Back End Projects -->
+                    <!-- <div class="col-lg-4 col-md-6 mb-4 portfolio-item backend">
+                        <div class="portfolio-img-wrapper">
+                            <span class="category-badge badge-backend">Back End</span>
+                            <img class="portfolio-img" src="img/portfolio-2.jpg" alt="RESTful API">
+                            <div class="portfolio-overlay">
+                                <h4 class="portfolio-title">RESTful API</h4>
+                                <p class="portfolio-category">Node.js, Express, MySQL</p>
+                                <a href="#" class="portfolio-link" data-lightbox="portfolio">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4 portfolio-item backend">
+                        <div class="portfolio-img-wrapper">
+                            <span class="category-badge badge-backend">Back End</span>
+                            <img class="portfolio-img" src="img/portfolio-4.jpg" alt="Authentication System">
+                            <div class="portfolio-overlay">
+                                <h4 class="portfolio-title">Auth System</h4>
+                                <p class="portfolio-category">JWT, Node.js, MySQL</p>
+                                <a href="#" class="portfolio-link" data-lightbox="portfolio">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4 portfolio-item backend">
+                        <div class="portfolio-img-wrapper">
+                            <span class="category-badge badge-backend">Back End</span>
+                            <img class="portfolio-img" src="img/portfolio-5.jpg" alt="Database Design">
+                            <div class="portfolio-overlay">
+                                <h4 class="portfolio-title">Database Design</h4>
+                                <p class="portfolio-category">MySQL</p>
+                                <a href="#" class="portfolio-link" data-lightbox="portfolio">View Project</a>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <!-- Full Stack Projects -->
+                    <!-- <div class="col-lg-4 col-md-6 mb-4 portfolio-item fullstack">
+                        <div class="portfolio-img-wrapper">
+                            <span class="category-badge badge-fullstack">Full Stack</span>
+                            <img class="portfolio-img" src="img/portfolio-3.jpg" alt="E-commerce Platform">
+                            <div class="portfolio-overlay">
+                                <h4 class="portfolio-title">E-commerce Platform</h4>
+                                <p class="portfolio-category">MERN Stack</p>
+                                <a href="#" class="portfolio-link" data-lightbox="portfolio">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4 portfolio-item fullstack">
+                        <div class="portfolio-img-wrapper">
+                            <span class="category-badge badge-fullstack">Full Stack</span>
+                            <img class="portfolio-img" src="img/portfolio-6.jpg" alt="Task Management App">
+                            <div class="portfolio-overlay">
+                                <h4 class="portfolio-title">Task Management</h4>
+                                <p class="portfolio-category">React, Node.js, MySQL</p>
+                                <a href="#" class="portfolio-link" data-lightbox="portfolio">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4 portfolio-item fullstack">
+                        <div class="portfolio-img-wrapper">
+                            <span class="category-badge badge-fullstack">Full Stack</span>
+                            <img class="portfolio-img" src="img/portfolio-5.jpg" alt="Blog Platform">
+                            <div class="portfolio-overlay">
+                                <h4 class="portfolio-title">Blog Platform</h4>
+                                <p class="portfolio-category">Express, EJS, MySQL</p>
+                                <a href="#" class="portfolio-link" data-lightbox="portfolio">View Project</a>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <!-- Portfolio End -->
+
+        <!-- Services Start -->
+        <div class="container-fluid pt-5 pb-5" id="service" style="background: #f8f9fa;">
+            <div class="container">
+                <div class="position-relative d-flex align-items-center justify-content-center mb-5">
+                    <h1 class="display-1 text-uppercase " style="display:none;">Service</h1>
+                    <h1 class="position-absolute text-uppercase text-primary">My Services</h1>
+                </div>
+
+                <div class="row">
+                    <!-- Full Stack Development Card -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card service-card h-100 border-0 shadow-sm hover-lift">
+                            <div class="card-body text-center p-4">
+                                <div class="mb-4">
+                                    <span
+                                        class="service-icon d-inline-flex align-items-center justify-content-center rounded-circle bg-primary text-white mb-3"
+                                        style="width: 70px; height: 70px; font-size: 30px;">
+                                        &#xf108;
+                                    </span>
+                                    <h4 class="font-weight-bold mb-3">Full Stack Development</h4>
+                                </div>
+                                <p class="text-muted mb-4">Build complete web apps with HTML/CSS/JS/Bootstrap frontends
+                                    and Node.js/MySQL backends. Scalable, secure solutions.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Backend API Card -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card service-card h-100 border-0 shadow-sm hover-lift">
+                            <div class="card-body text-center p-4">
+                                <div class="mb-4">
+                                    <span
+                                        class="service-icon d-inline-flex align-items-center justify-content-center rounded-circle bg-primary text-white mb-3"
+                                        style="width: 70px; height: 70px; font-size: 30px;">
+                                        &#xf121;
+                                    </span>
+                                    <h4 class="font-weight-bold mb-3">Backend API</h4>
+                                </div>
+                                <p class="text-muted mb-4">Robust Node.js REST APIs with MySQL CRUD, auth, validation.
+                                    High-performance endpoints for reliable data handling</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Responsive Design Card -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card service-card h-100 border-0 shadow-sm hover-lift">
+                            <div class="card-body text-center p-4">
+                                <div class="mb-4">
+                                    <span
+                                        class="service-icon d-inline-flex align-items-center justify-content-center rounded-circle bg-primary text-white mb-3"
+                                        style="width: 70px; height: 70px; font-size: 30px;">
+                                        &#xf10b;
+                                    </span>
+                                    <h4 class="font-weight-bold mb-3">Responsive Design</h4>
+                                </div>
+                                <p class="text-muted mb-4">Mobile-first Bootstrap/CSS layouts. Adaptive UIs across
+                                    devices for pixel-perfect, accessible experiences</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Frontend Development Card -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card service-card h-100 border-0 shadow-sm hover-lift">
+                            <div class="card-body text-center p-4">
+                                <div class="mb-4">
+                                    <span
+                                        class="service-icon d-inline-flex align-items-center justify-content-center rounded-circle bg-primary text-white mb-3"
+                                        style="width: 70px; height: 70px; font-size: 30px;">
+                                        &#xf1fc;
+                                    </span>
+                                    <h4 class="font-weight-bold mb-3">Frontend Development</h4>
+                                </div>
+                                <p class="text-muted mb-4">Interactive HTML5/CSS3/JS/Bootstrap UIs. Dynamic features,
+                                    clean code, optimized performance. </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Database Design Card -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card service-card h-100 border-0 shadow-sm hover-lift">
+                            <div class="card-body text-center p-4">
+                                <div class="mb-4">
+                                    <span
+                                        class="service-icon d-inline-flex align-items-center justify-content-center rounded-circle bg-primary text-white mb-3"
+                                        style="width: 70px; height: 70px; font-size: 30px;">
+                                        &#xf1c0;
+                                    </span>
+                                    <h4 class="font-weight-bold mb-3">Database Design</h4>
+                                </div>
+                                <p class="text-muted mb-4">Efficient MySQL schemas, indexes, queries. Secure models with
+                                    Node.js integration for scalable data</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Web Maintenance Card -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card service-card h-100 border-0 shadow-sm hover-lift">
+                            <div class="card-body text-center p-4">
+                                <div class="mb-4">
+                                    <span
+                                        class="service-icon d-inline-flex align-items-center justify-content-center rounded-circle bg-primary text-white mb-3"
+                                        style="width: 70px; height: 70px; font-size: 30px;">
+                                        &#xf0ad;
+                                    </span>
+                                    <h4 class="font-weight-bold mb-3">Web Maintenance</h4>
+                                </div>
+                                <p class="text-muted mb-4">Ongoing Node.js/MySQL support: fixes, tuning, security.
+                                    Proactive monitoring for uptime.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Services End -->
+
+
+        <!-- Contact Start -->
+        <div class="container-fluid py-5" id="contactForm">
+            <div class="container">
+                <div class="position-relative d-flex align-items-center justify-content-center">
+                    <h1 class="display-1 text-uppercase text-white">Contact</h1>
+                    <h1 class="position-absolute text-uppercase text-primary">Contact Me</h1>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <form>
+                            <div class="form-row">
+                                <div class="control-group col-sm-6 mb-3">
+                                    <input type="text" name="name" class="form-control p-4" placeholder="Your Name"
+                                        required>
+                                </div>
+                                <div class="control-group col-sm-6 mb-3">
+                                    <input type="email" name="email" class="form-control p-4" placeholder="Your Email"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="control-group mb-3">
+                                <input type="text" name="subject" class="form-control p-4" placeholder="Subject"
+                                    required>
+                            </div>
+                            <div class="control-group mb-3">
+                                <textarea name="message" class="form-control py-3 px-4" rows="5" placeholder="Message"
+                                    required></textarea>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-outline-primary">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Contact End -->
+
+        <!-- Footer Start -->
+        <div class="container-fluid bg-primary text-white mt-5 py-5 px-sm-3 px-md-5"
+            style="border-radius: 50px 50px 0 0;">
+            <div class="container text-center py-5">
+                <div class="d-flex justify-content-center mb-4">
+                    <a class="btn btn-light btn-social mr-2" href="tel:+918870671827">
+                        <i class="fas fa-phone" style="transform: rotate(95deg);"></i>
+                    </a>
+                    <a class="btn btn-light btn-social mr-2" href="https://wa.me/918870671827" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a class="btn btn-light btn-social mr-2" href="https://linkedin.com/in/marutha-pandi-a-7b2085254"
+                        target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="btn btn-light btn-social" href="mailto:amaruthupandi04@gmail.com">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+                <div class="d-flex justify-content-center mb-3">
+                    <a class="text-white" href="#home">Home</a>
+                    <span class="px-3">|</span>
+                    <a class="text-white" href="#about">About</a>
+                    <span class="px-3">|</span>
+                    <a class="text-white" href="#portfolio">Projects</a>
+                    <span class="px-3">|</span>
+                    <a class="text-white" href="#contactForm">Contact</a>
+                </div>
+                <p class="m-0">&copy; <a class="text-white font-weight-bold" href="#">Marutha Pandi</a>. All Rights
+                    Reserved. Designed by <a class="text-white font-weight-bold" href="">Marutha Pandi</a></p>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/typed/typed.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/waypoints/waypoints.min.js"></script>
+        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="lib/isotope/isotope.pkgd.min.js"></script>
+        <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
+
+        <script>
+            // Resume Modal Functions
+            function openResume() {
+                document.getElementById('resumeModal').style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeResume() {
+                document.getElementById('resumeModal').style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+
+            // Close modal when clicking outside
+            window.onclick = function (event) {
+                var modal = document.getElementById('resumeModal');
+                if (event.target == modal) {
+                    closeResume();
+                }
+            }
+
+            // Close modal with Escape key
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape') {
+                    closeResume();
+                }
+            });
+        </script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+
+                const form = document.getElementById("contactForm");
+
+                form.addEventListener("submit", async function (e) {
+                    e.preventDefault();
+
+                    const submitBtn = form.querySelector("button[type='submit']");
+                    submitBtn.disabled = true;
+                    submitBtn.innerText = "Sending...";
+
+                    const data = {
+                        name: form.querySelector("[name='name']").value,
+                        email: form.querySelector("[name='email']").value,
+                        subject: form.querySelector("[name='subject']").value,
+                        message: form.querySelector("[name='message']").value
+                    };
+
+                    try {
+                        const response = await fetch("http://localhost:5000/api/contact", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify(data)
+                        });
+
+                        const result = await response.json();
+
+                        if (result.success) {
+                            alert("✅ Message sent successfully!");
+                            form.reset();
+                        } else {
+                            alert("❌ Failed to send message");
+                        }
+
+                    } catch (error) {
+                        console.error(error);
+                        alert("⚠️ Server error. Please try again later.");
+                    }
+
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = "Send Message";
+                });
+
+            });
+        </script>
+
+</body>
+
+</html>
